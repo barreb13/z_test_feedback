@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Please Rate Your Training</title>
+</head>
+<body>
+    <div class="container">
+        <img src="../static/logo.jpg" alt="Lexus" class="logo">
+        <!--@todo - message-->
+        {% if message %}
+            <p class="message">{{ message | safe }}</p>
+        {% endif %}
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <h3> Email Address *</h3>
+                <input
+                    type="text"
+                    name="techEmail"
+                    placeholder="email123@ziply.com"
+                    />
+            </div>
+            <div class="form-group">
+                <h3> Technician Name *</h3>
+                <input
+                    type="text"
+                    name="techName"
+                    placeholder="Your Name"
+                    />
+            </div>
+            <div class="form-group">
+                <h3> I walked away understanding the product </h3>
+                <h5>1 = Completely Disagree | 3 = Neutral | 5 = Completely Agree</h5>
+                <input type="radio" name="understandingProduct" value="1" /> 1 
+                <input type="radio" name="understandingProduct" value="2" /> 2 
+                <input type="radio" name="understandingProduct" value="3" checked/> 3 
+                <input type="radio" name="understandingProduct" value="4" /> 4 
+                <input type="radio" name="understandingProduct" value="5" /> 5 
+            </div>
+            <div class="form-group">
+                <h3> I walked away understanding the process </h3>
+                <h5>1 = Completely Disagree | 3 = Neutral | 5 = Completely Agree</h5>
+                <input type="radio" name="understandingProcess" value="1" /> 1
+                <input type="radio" name="understandingProcess" value="2" /> 2
+                <input type="radio" name="understandingProcess" value="3" checked/> 3
+                <input type="radio" name="understandingProcess" value="4" /> 4
+                <input type="radio" name="understandingProcess" value="5" /> 5
+            </div>
+            <div class="form-group">
+                <h3> The training was valuable </h3>
+                <h5>1 = Completely Disagree | 3 = Neutral | 5 = Completely Agree</h5>
+                <input type="radio" name="wasValuable" value="1" /> 1
+                <input type="radio" name="wasValuable" value="2" /> 2
+                <input type="radio" name="wasValuable" value="3" checked/> 3
+                <input type="radio" name="wasValuable" value="4" /> 4
+                <input type="radio" name="wasValuable" value="5" /> 5
+            </div>
+            <div class="form-group">
+                <h3> The content was well organized and easy to follow </h3>
+                <h5>1 = Completely Disagree | 3 = Neutral | 5 = Completely Agree</h5>
+                <input type="radio" name="wasOrganized" value="1" /> 1
+                <input type="radio" name="wasOrganized" value="2" /> 2
+                <input type="radio" name="wasOrganized" value="3" checked/> 3
+                <input type="radio" name="wasOrganized" value="4" /> 4
+                <input type="radio" name="wasOrganized" value="5" /> 5
+            </div>
+            <div class="form-group">
+                <h3> The training met my expectations </h3>
+                <h5>1 = Completely Disagree | 3 = Neutral | 5 = Completely Agree</h5>
+                <input type="radio" name="metExpectations" value="1" /> 1
+                <input type="radio" name="metExpectations" value="2" /> 2
+                <input type="radio" name="metExpectations" value="3" checked/> 3
+                <input type="radio" name="metExpectations" value="4" /> 4
+                <input type="radio" name="metExpectations" value="5" /> 5
+            </div>
+            <div class="form-group">
+                <h3>The trainer's proficiency was:</h3>
+                <select name="trainingProficiency">
+                    <option value="">Select Trainer's Proficiency</option>
+                    <option value="ExcellentProficiency">Excellent</option>
+                    <option value="GoodProficiency">Good</option>
+                    <option value="FairProficiency">Fair</option>
+                    <option value="NeedsImprovementProficiency">Needs Improvement</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h3>The training pace was</h3>
+                <select name="trainingPace">
+                    <option value="">Select Trainer's Pace</option>
+                    <option value="fastPace">Too Fast</option>
+                    <option value="goodPace">Good</option>
+                    <option value="slowPace">Too Slow</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h3>What is the best format to share this training for reference?</h3>
+                <select name="bestFormat">
+                    <option value="">Select Best Format</option>
+                    <option value="FOneFormat">F(One)</option>
+                    <option value="SharePointFormat">SharePoint</option>
+                    <option value="otherFormat">Other - Leave in final comments below</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h3>How can the training be improved?</h3>
+                <textarea
+                    name="commentsImproved"
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder= "The training could be improved by..."
+                ></textarea>
+            </div>
+            <div class="form-group">
+                <h3> How would you rate the training overall? </h3>
+                <h5>1 = Poor | 5 = Fair | 10 = Great</h5>
+                <input type="radio" name="overall" value="1" /> 1
+                <input type="radio" name="overall" value="2" /> 2
+                <input type="radio" name="overall" value="3" /> 3
+                <input type="radio" name="overall" value="4" /> 4
+                <input type="radio" name="overall" value="5" checked/> 5
+                <input type="radio" name="overall" value="6" /> 6
+                <input type="radio" name="overall" value="7" /> 7
+                <input type="radio" name="overall" value="8" /> 8
+                <input type="radio" name="overall" value="9" /> 9
+                <input type="radio" name="overall" value="10" /> 10
+            </div>
+            <div class="form-group">
+                <h3>Final Comments</h3>
+                <textarea
+                    name="finalComments"
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder= "Something you liked and / or disliked"
+                ></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn" />
+        </form>
+    </div>
+</body>
+</html>
